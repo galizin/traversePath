@@ -45,15 +45,10 @@ type: "file",
 };
 
     res.setHeader('Content-Type', 'application/json');
-    //res.end(JSON.stringify({ a: 1, path: req.path, tree:root, currpath: currpath }));
-    //let tree=JSON.stringify(root);
-    //let currpath = pointer.get(tree, '/type')
-    //let realpath = '/children/' + req.path.split('/').splice(0,1).join('/children/');
     let splitpath = req.path.split('/');
     splitpath.shift();
     splitpath.shift();
     let realpath = '/children/' + splitpath.join('/children/');
-    //let obj2 = pointer.get(root, '/children/');
     if (realpath == '/children/')
       realpath = '';
     if (!pointer.has(root, realpath))
